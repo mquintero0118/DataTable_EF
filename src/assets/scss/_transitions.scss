@@ -1,0 +1,11 @@
+.slideup-enter-active,
+.slideup-leave-active {
+  max-height: 500px;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.slideup-enter-from,
+.slideup-leave-to {
+  max-height: 0;
+}

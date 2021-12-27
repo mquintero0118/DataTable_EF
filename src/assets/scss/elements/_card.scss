@@ -1,0 +1,64 @@
+.btn-tool {
+  background-color: transparent;
+  color: $white;
+  font-size: 0.875rem;
+  font-weight: 900;
+  margin: -0.75rem 0;
+  padding: 0.25rem 0.5rem;
+}
+.card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0.75rem 1.25rem;
+  position: relative;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+.card-default:not(.card-outline) > .card-header {
+  background-color: #fff;
+}
+.card-success:not(.card-outline) > .card-header {
+  background-color: $success;
+  color: $white;
+}
+.card-primary:not(.card-outline) > .card-header {
+  background-color: $primary;
+  color: $white;
+}
+.card-danger:not(.card-outline) > .card-header {
+  background-color: $danger;
+  color: $white;
+}
+
+.card-warning:not(.card-outline) > .card-header {
+  background-color: $warning;
+}
+
+div.card-primary.card-outline > .card-header {
+  border-top: 3px solid $primary;
+  background-color: transparent;
+}
+div.card-success.card-outline > .card-header {
+  border-top: 3px solid $success;
+  background-color: transparent;
+}
+div.card-danger.card-outline > .card-header {
+  border-top: 3px solid $danger;
+  background-color: transparent;
+}
+div.card-warning.card-outline > .card-header {
+  border-top: 3px solid $warning;
+  background-color: transparent;
+}
+.card-default .btn-tool,
+.card-warning.card-outline .btn-tool,
+.card-primary.card-outline .btn-tool,
+.card-success.card-outline .btn-tool,
+.card-danger.card-outline .btn-tool {
+  color: #adb5bd;
+}
