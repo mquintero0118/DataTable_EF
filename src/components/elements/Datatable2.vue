@@ -72,6 +72,17 @@ export default defineComponent({
 });
 </script>
 
-<style>
-
+<style scoped>
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  padding: 20px;
+}
 </style>
