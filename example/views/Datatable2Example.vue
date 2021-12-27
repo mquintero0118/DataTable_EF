@@ -1,6 +1,7 @@
 <template>
   <h2>Datable hello world</h2>
   <dataTable></dataTable>
+  <!-- test -->
 </template>
 
 <script>
