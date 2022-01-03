@@ -115,4 +115,12 @@ export default [
     },
     component: () => import(/* webpackChunkName: "datatable2" */ '../views/Datatable2Example.vue'),
   },
+  {
+    path: '/datatableaxios',
+    name: 'datatableaxios',
+    meta: {
+      title: 'Datatableaxios',
+    },
+    component: () => import(/* webpackChunkName: "datatable2" */ '../views/DatatableWAxios.vue'),
+  },
 ];

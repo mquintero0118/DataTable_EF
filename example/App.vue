@@ -98,6 +98,12 @@ export default {
         icon: 'table',
         title: 'DataTable2',
       },
+      {
+        id: 'datatableaxios',
+        to: '/datatableaxios',
+        icon: 'table',
+        title: 'Datatableaxios',
+      },
     ]);
     store.dispatch('user/setUserProfile', JSON.parse(localStorage.getItem('user')));
     return { layout };

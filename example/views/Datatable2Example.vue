@@ -1,5 +1,5 @@
 <template>
-  <h2>Datable hello world</h2>
+  <h2>Ejemplo de datatable 2</h2>
   <dataTable></dataTable>
   <!-- test -->
 </template>

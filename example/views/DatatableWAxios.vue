@@ -24,8 +24,10 @@
 import {
   defineComponent, reactive, ref, computed,
 } from 'vue';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from 'axios';
 // import TableLite from 'vue3-table-lite';
-import TableLite from './TableLite.vue';
+import TableLite from '@/components/elements/TableLite.vue';
 
 export default defineComponent({
   name: 'App',
@@ -34,44 +36,47 @@ export default defineComponent({
     const searchTerm = ref(''); // Search text
     // Fake data
     const data = reactive([]);
-    for (let i = 0; i < 30; i += 1) {
-      data.push({
-        id: i,
-        name: `TEST${i}`,
-        email: `test${i}@example.com`,
+    axios.get('reponseMaterials.json')
+      .then((response) => {
+        console.log(response);
+        for (let i = 0; i < 250; i += 1) {
+          data.push({
+            id: response.data.data[i].Material.id,
+            nombre: response.data.data[i].Material.nombre,
+            descripcion: response.data.data[i].Material.descripcion,
+          });
+        }
       });
-    }
     // Table config
     const table = reactive({
       columns: [
         {
-          label: 'Name',
-          field: 'id',
-          width: '5%',
+          label: 'Nombre',
+          field: 'nombre',
+          width: '10%',
           display(row) {
-            return `<button type="button" data-id="${row.id}" class="btn btn-primary btn-sm">${row.name}</button>`;
+            return `<button type="button" data-id="${row.id}" class="btn btn-primary btn-sm">${row.nombre}</button>`;
           },
           sortable: true,
-          isKey: true,
+
         },
         {
-          label: 'Email',
-          field: 'email',
+          label: 'Descripcion',
+          field: 'descripcion',
           width: '15%',
           sortable: true,
         },
         {
           label: 'ID',
-          field: 'quick',
-          width: '10%',
-          display(row) {
-            return `<button type="button" data-id="${row.id}" class="btn btn-primary btn-sm">${row.id}</button>`;
-          },
+          field: 'id',
+          width: '5%',
+          sortable: true,
+          isKey: true,
         },
       ],
       rows: computed(() => data.filter(
-        (x) => x.email.toLowerCase().includes(searchTerm.value.toLowerCase())
-            || x.name.toLowerCase().includes(searchTerm.value.toLowerCase()),
+        (x) => x.descripcion.toLowerCase().includes(searchTerm.value.toLowerCase())
+            || x.nombre.toLowerCase().includes(searchTerm.value.toLowerCase()),
       )),
       totalRecordCount: computed(() => table.rows.length),
       sortable: {
@@ -104,12 +109,12 @@ export default defineComponent({
   max-width: 30%;
 position: relative;
   top: 70px;
-  z-index: 5000;
+  z-index: 400;
   margin-left: 68%;
 }
 .input-group-text {
 position: relative;
   top: 70px;
-  z-index: 5000;
+  z-index: 500;
 }
 </style>
